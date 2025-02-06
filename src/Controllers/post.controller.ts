@@ -11,6 +11,7 @@ class postController {
             title: req.body.title,
             author: req.body.author,
             description: req.body.description,
+            // datetime: req.body.datetime,
             published: req.body.published
         }
         //validating the request

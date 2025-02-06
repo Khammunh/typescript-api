@@ -72,21 +72,22 @@ export class postService {
                 { title: { $regex: query, $options: "i" } },
                 { author: { $regex: query, $options: "i" } },
                 { description: { $regex: query, $options: "i" } },
+                // { datetime: { $regex: query, $options: "i" } },
             ]
         };
         
-        const posts = await Post.find(filter).sort({_id: -1}).limit(3);
+        const posts = await Post.find(filter).limit(2).sort({createdAt: -1});
+        // const posts = await Post.find(filter).sort({createdAt: -1}).limit(5);
       
         return posts;
     } catch (error) {
         console.log(error);
         throw error;
     }
+
+    // sort, skip, limit, populate
+    }
 }
 
-
-// sort, skip, limit, populate
-
-}
 //export the class
 export const postServices = new postService()
